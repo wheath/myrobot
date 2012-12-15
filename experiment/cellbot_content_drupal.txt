@@ -1,0 +1,48 @@
+<form>
+  <div style='display:inline'> 
+  <!-- input type="image" SRC="http://www.graysonconsulting.biz/left.png"  ALT="left" value="left" id='left' / -->
+<input type="button" value="backward" id='backward' />
+<input type="button" value="forward" id='forward' />
+  <input type="button" value="right" id='right' />
+  </div>
+</form>
+
+<script>
+jQuery(document).ready(function($) {
+  $('#left').click(function() { 
+  console.log('left called');
+  $.getJSON("http://www.graysonconsulting.biz:8080/?callback=?&cmd=left", 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+    });
+  });
+
+  $('#right').click(function() { 
+  console.log('right called');
+  $.getJSON("http://www.graysonconsulting.biz:8080/?callback=?&cmd=right", 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+    });
+  });
+
+  $('#backward').click(function() { 
+  console.log('backward called');
+  $.getJSON("http://www.graysonconsulting.biz:8080/?callback=?&cmd=backward", 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+    });
+  });
+
+  $('#forward').click(function() { 
+  console.log('backward called');
+  $.getJSON("http://www.graysonconsulting.biz:8080/?callback=?&cmd=forward", 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+    });
+  });
+
+
+
+  
+});
+</script>
