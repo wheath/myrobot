@@ -9,20 +9,16 @@
     <script src="assets/js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
     <script type='text/javascript'>
-        function onBodyLoad() {		
-            console.log("_dbg in onBodyLoad");
-            //document.addEventListener("deviceready",onDeviceReady,false);
-            document.addEventListener("deviceready", function() {
-              console.log("_dbg deviceready event fired");
-              $('#logon _button').click(function() {
-                console.log("_dbg button clicked");
-              });
-            }, false);
+    $(document).ready( function() {
+      document.addEventListener("deviceready", systemReady, true);
+    } );
+        function systemReady() {		
+            console.log("_dbg in systemReady");
         }
     </script>
     <title>MyRobot</title>
   </head>
-<body onload="onBodyLoad()">
+<body>
 
   <header>
     <h1>MyRobot</h1>
@@ -33,7 +29,7 @@
         <div class="app_button" id="logon_button">Login</div>
       </div>
       <div align="center">
-        <div class="app_button" id="version_button">Version 1.0.13</div>
+        <div class="app_button" id="version_button">Version 1.0.14</div>
       </div>
       <div align="center">
         <img src="assets/img/logo.png"/>
