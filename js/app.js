@@ -1,7 +1,7 @@
-//$(document).bind('deviceready', function(){
 function onDeviceReady() {
   console.log('MyRobot app started with moved js dir');
   $('#logon_button').click(function() { 
+
     alert('logon button clicked with js dir moved'); 
     try {
     $.ajax({
@@ -33,4 +33,6 @@ function onDeviceReady() {
   catch (error) { 
     alert("page_dashboard - " + error); }
   }
+});
+
 }
