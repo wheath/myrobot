@@ -3,7 +3,6 @@ function onDeviceReady() {
   $('#logon_button').click(function() { 
 
     alert('logon button clicked with js dir moved'); 
-    try {
     $.ajax({
       url: "http://www.myrobot.com/drupal/drupalgap/system/connect.json",
       type: 'post',
@@ -29,10 +28,6 @@ function onDeviceReady() {
         }
       }
     });
-  }
-  catch (error) { 
-    alert("page_dashboard - " + error); }
-  }
 });
 
 }
