@@ -30,6 +30,12 @@ function onDeviceReady() {
           alert("logged in");
           //$('#logon_button').hide();
           //$('#logout_button').show();
+          var sessid = data.sessid;
+          var session_name = data.session_name;
+          var user = data.user;       
+          console.log('_dbg session_name',session_name);
+          console.log('_dbg sessid',sessid); 
+          jQuery.cookie(session_name, sessid);
         }
       }
     });
@@ -76,4 +82,19 @@ $('#page_node_create_submit').live('click',function(){
   // END: drupal services node create
   });
 
+  $('#test_get_node').live('click',function(){
+    jQuery.ajax({
+            url : "http://yourserver.com/test/user/1.json",
+            type : 'get',
+            dataType : 'json',
+            error : function(data) {
+                //error code
+                alert('Error',data);
+                },
+            success : function(data) {
+              //success code
+              alert('Cookie Accepted',data);
+            }
+   });
+  });
 }
