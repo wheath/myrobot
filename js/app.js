@@ -3,9 +3,15 @@ function onDeviceReady() {
   $('#logon_button').click(function() { 
 
     alert('logon button clicked with js dir moved'); 
+    var name = $('#page_login_name').val();
+  if (!name) { alert('Please enter your user name.'); return false; }
+  var pass = $('#page_login_pass').val();
+  if (!pass) { alert('Please enter your password.'); return false; }
+      //url: "http://www.myrobot.com/drupal/drupalgap/system/connect.json",
     $.ajax({
-      url: "http://www.myrobot.com/drupal/drupalgap/system/connect.json",
+      url: "http://www.myrobot.com/drupal/rest/user/login.json",
       type: 'post',
+      data: 'username=' + encodeURIComponent(name) + '&password=' + encodeURIComponent(pass),
       dataType: 'json',
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         alert('page_dashboard - failed to system connect');
