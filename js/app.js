@@ -93,7 +93,7 @@ $('#page_node_create_submit').live('click',function(){
                 },
             success : function(data) {
               //success code
-              alert('Cookie Accepted',JSON.stringify(data));
+              alert('Cookie Accepted' + JSON.stringify(data));
             }
    });
   });
