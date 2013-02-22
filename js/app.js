@@ -89,12 +89,11 @@ $('#page_node_create_submit').live('click',function(){
             dataType : 'json',
             error : function(data) {
                 //error code
-                alert('Error',data);
+                alert('Error',JSON.stringify(data));
                 },
             success : function(data) {
               //success code
-              console.log('_dbg raw data' + JSON.stringify(data));
-              alert('Cookie Accepted',data);
+              alert('Cookie Accepted',JSON.stringify(data));
             }
    });
   });
