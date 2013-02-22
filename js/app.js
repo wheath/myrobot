@@ -84,7 +84,7 @@ $('#page_node_create_submit').live('click',function(){
 
   $('#test_get_node').live('click',function(){
     jQuery.ajax({
-            url : "http://yourserver.com/test/user/1.json",
+            url : "http://www.myrobot.com/drupal/rest/node/16.json",
             type : 'get',
             dataType : 'json',
             error : function(data) {
