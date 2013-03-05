@@ -1,11 +1,11 @@
 function change_cb_cmd_to_processed(cb_cmd_nid) {
   alert('updating field_state field of cellbot command with nid: ' + cb_cmd_nid + ' with command value: ' + cb_cmds[cb_cmd_nid] + ' to processed');
 
-  var updateObj = {"type":"cellbot_command","field_state":{"und":"processed"}};
+  //var updateObj = {"type":"cellbot_command","field_state":{"und":"processed"}};
   $.ajax({
-      url: "http://www.myrobot.com/drupal/rest/node/" + cb_cmd_nid,
+      url: "http://www.myrobot.com/drupal/rest/node/" + cb_cmd_nid + '.json',
       type: 'PUT',
-      data: JSON.stringify(updateObj),
+      data: '{"field_state":{"und":[{"value":"processed"}]}}',
       dataType: 'json',
       contentType: 'application/json',
       error: function(XMLHttpRequest, textStatus, errorThrown) {
