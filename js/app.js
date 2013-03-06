@@ -1,5 +1,5 @@
 function change_cb_cmd_to_processed(cb_cmd_nid) {
-  alert('updating field_state field of cellbot command with nid: ' + cb_cmd_nid + ' with command value: ' + cb_cmds[cb_cmd_nid] + ' to processed');
+  alert('updating field_state field of cellbot command with nid: ' + cb_cmd_nid + ' with command value: ' + cb_cmd_nid + ' to processed');
 
   //var updateObj = {"type":"cellbot_command","field_state":{"und":"processed"}};
   $.ajax({
