@@ -122,6 +122,19 @@ $('#page_node_create_submit').live('click',function(){
   // END: drupal services node create
   });
 
+  function send_cbcmd_to_pythonsvr(cb_cmd) {
+    $.getJSON("http://localhost:8080/?callback=?&cmd=" + cb_cmd, 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+        alert('python server json returned: ' + JSON.stringify(rtndata));
+    }); 
+  }
+
+  $('#leftcbcmd_to_python').live('click',function() {
+    console.log("_dbg sending left to python svr");
+    send_cbcmd_to_pythonsvr('left');
+  });
+
   $('#process_cmds').live('click',function(){
     jQuery.ajax({
             url : "http://www.myrobot.com/drupal/rest/view/newcbcmds.json",
@@ -139,6 +152,7 @@ $('#page_node_create_submit').live('click',function(){
               alert('cb_cmds for cellbot node id 16: ' + JSON.stringify(cb_cmds));
               for(var cb_cmd_nid in cb_cmds) {
                 alert('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmds[cb_cmd_nid]);
+                send_cbcmd_to_pythonsvr(cb_cmd);
                 change_cb_cmd_to_processed(cb_cmd_nid); 
               }
             }
