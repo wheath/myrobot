@@ -43,5 +43,6 @@ class index:
     return ret_data;
 
 if __name__ == "__main__": 
+    print "_dbg starting python svr\n";
     app = web.application(urls, globals())
     app.run()
