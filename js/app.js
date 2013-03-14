@@ -1,33 +1,13 @@
 var timeoutID;
 
-function processCommands() {
-    jQuery.ajax({
-            url : "http://www.myrobot.com/drupal/rest/view/newcbcmds.json",
-            type : 'get',
-            data: 'filters[cb_node_id]=16',
-            dataType : 'json',
-            error : function(data) {
-                //error code
-                console.log('Error: ' + JSON.stringify(data));
-                },
-            success : function(data) {
-              //success code
-              console.log('retrieved cellbot commands from newcbcmds view: ' + JSON.stringify(data));
-              var cb_cmds = get_cellbot_cmds(16, data); 
-              console.log('cb_cmds for cellbot node id 16: ' + JSON.stringify(cb_cmds));
-              for(var cb_cmd_nid in cb_cmds) {
-                cb_cmd = cb_cmds[cb_cmd_nid];
-                console.log('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmd);
-                window.send_cbcmd_to_pythonsvr(cb_cmd);
-                window.change_cb_cmd_to_processed(cb_cmd_nid); 
-              }
-            }
-   });
-
-  if($("#toggle_available").text() == "Go Unavailable") {
-    timeoutID = setTimeout(processCommands, 15000);
+  function send_cbcmd_to_pythonsvr(cb_cmd) {
+    $("#status").text("status: " + cb_cmd);
+    $.getJSON("http://localhost:8080/?callback=?&cmd=" + cb_cmd, 
+    function(rtndata) {
+        console.log('json returned' + JSON.stringify(rtndata));
+        console.log('python server json returned: ' + JSON.stringify(rtndata));
+    }); 
   }
-}
 
 function change_cb_cmd_to_processed(cb_cmd_nid) {
   console.log('updating field_state field of cellbot command with nid: ' + cb_cmd_nid + ' with command value: ' + cb_cmd_nid + ' to processed');
@@ -50,6 +30,36 @@ function change_cb_cmd_to_processed(cb_cmd_nid) {
       }
   });
 }
+
+function processCommands() {
+    jQuery.ajax({
+            url : "http://www.myrobot.com/drupal/rest/view/newcbcmds.json",
+            type : 'get',
+            data: 'filters[cb_node_id]=16',
+            dataType : 'json',
+            error : function(data) {
+                //error code
+                console.log('Error: ' + JSON.stringify(data));
+                },
+            success : function(data) {
+              //success code
+              console.log('retrieved cellbot commands from newcbcmds view: ' + JSON.stringify(data));
+              var cb_cmds = get_cellbot_cmds(16, data); 
+              console.log('cb_cmds for cellbot node id 16: ' + JSON.stringify(cb_cmds));
+              for(var cb_cmd_nid in cb_cmds) {
+                cb_cmd = cb_cmds[cb_cmd_nid];
+                console.log('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmd);
+                send_cbcmd_to_pythonsvr(cb_cmd);
+                change_cb_cmd_to_processed(cb_cmd_nid); 
+              }
+            }
+   });
+
+  if($("#toggle_available").text() == "Go Unavailable") {
+    timeoutID = setTimeout(processCommands, 15000);
+  }
+}
+
 
 function get_cellbot_cmds(cb_node_id, obj) {
     var cb_nid_to_cb_cmd = {};
@@ -163,14 +173,6 @@ $('#page_node_create_submit').live('click',function(){
   // END: drupal services node create
   });
 
-  function send_cbcmd_to_pythonsvr(cb_cmd) {
-    $("#status").text("status: " + cb_cmd);
-    $.getJSON("http://localhost:8080/?callback=?&cmd=" + cb_cmd, 
-    function(rtndata) {
-        console.log('json returned' + JSON.stringify(rtndata));
-        console.log('python server json returned: ' + JSON.stringify(rtndata));
-    }); 
-  }
 
   $('#leftcbcmd_to_python').live('click',function() {
     console.log("_dbg sending left to python svr");
