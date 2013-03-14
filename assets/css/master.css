@@ -64,6 +64,18 @@ h1{
     padding:0;
 }
 
+#leftcbcmd_to_python {
+  display: inline-block;
+}
+
+#page_node_create_submit {
+  display: inline-block;
+}
+
+#process_cmds {
+  display: inline-block;
+}
+
 .app_button, button {
   -webkit-border-radius: 20px;
   border-radius: 20px;
