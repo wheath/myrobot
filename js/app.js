@@ -18,8 +18,8 @@ function processCommands() {
               for(var cb_cmd_nid in cb_cmds) {
                 cb_cmd = cb_cmds[cb_cmd_nid];
                 console.log('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmd);
-                send_cbcmd_to_pythonsvr(cb_cmd);
-                change_cb_cmd_to_processed(cb_cmd_nid); 
+                window.send_cbcmd_to_pythonsvr(cb_cmd);
+                window.change_cb_cmd_to_processed(cb_cmd_nid); 
               }
             }
    });
