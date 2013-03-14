@@ -65,15 +65,15 @@ h1{
 }
 
 #leftcbcmd_to_python {
-  display: inline-block;
+  /* display: none; */
 }
 
 #page_node_create_submit {
-  display: inline-block;
+  display: none;
 }
 
 #process_cmds {
-  display: inline-block;
+  display: none;
 }
 
 .app_button, button {
