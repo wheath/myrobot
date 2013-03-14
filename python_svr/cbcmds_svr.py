@@ -14,7 +14,7 @@ class index:
     cbfn = i.callback
     web.header('Content-Type', 'application/javascript') 
     print "_dbg processing cellbot command %s\n" % i.cmd
-    ser.write("%c\n" % input)
+    ser.write("%c\n" % i.cmd)
     ret_data = {}
     ret_data['status'] = 'success'
     ret_data['message'] = 'cellbot executed command: %s' % i.cmd  
