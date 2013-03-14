@@ -16,7 +16,8 @@ function processCommands() {
               var cb_cmds = get_cellbot_cmds(16, data); 
               console.log('cb_cmds for cellbot node id 16: ' + JSON.stringify(cb_cmds));
               for(var cb_cmd_nid in cb_cmds) {
-                console.log('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmds[cb_cmd_nid]);
+                cb_cmd = cb_cmds[cb_cmd_nid];
+                console.log('processing cellbot command with nid: ' + cb_cmd_nid + ' with command vaue: ' + cb_cmd);
                 send_cbcmd_to_pythonsvr(cb_cmd);
                 change_cb_cmd_to_processed(cb_cmd_nid); 
               }
