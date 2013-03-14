@@ -65,7 +65,7 @@ h1{
 }
 
 #leftcbcmd_to_python {
-  /* display: none; */
+  display: none; 
 }
 
 #page_node_create_submit {
