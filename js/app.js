@@ -173,7 +173,7 @@ $('#page_node_create_submit').live('click',function(){
 
   $('#leftcbcmd_to_python').live('click',function() {
     console.log("_dbg sending left to python svr");
-    send_cbcmd_to_pythonsvr('left');
+    send_cbcmd_to_pythonsvr('l');
   });
 
   $('#process_cmds').live('click',function(){
