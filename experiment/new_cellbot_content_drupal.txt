@@ -1,0 +1,116 @@
+jQuery.noConflict();
+
+(function ($) {
+
+Drupal.behaviors.cellbot16Behavior = {
+    attach: function (context, settings) {
+        $('#left16').bind('click', function() {
+            alert('cellbot with node 16 left button clicked');
+
+             var title = 'node 16 left cellbot command';
+  var body = 'l';
+  var cb_node_id = 16;
+
+  // BEGIN: drupal services node create login (warning: don't use https if you don't have ssl setup)
+  $.ajax({
+      url: "http://www.myrobot.com/drupal/rest/node.json",
+      type: 'post',
+      data: 'node[type]=cellbot_command&node[title]=' + encodeURIComponent(title) + '&node[language]=und&node[body][und][0][value]=' + encodeURIComponent(body) +
+'&node[field_cb_node_id][und][0][value]=16',
+      dataType: 'json',
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('cellbot_command create_submit - failure');
+        console.log(JSON.stringify(XMLHttpRequest));
+        console.log(JSON.stringify(textStatus));
+        console.log(JSON.stringify(errorThrown));
+      },
+      success: function (data) {
+        alert("success creating left cellbot command node");
+      }
+  });
+        });
+
+        $('#right16').bind('click', function() {
+            alert('cellbot with node 16 right button clicked');
+
+             var title = 'node 16 right cellbot command';
+  var body = 'r';
+  var cb_node_id = 16;
+
+  // BEGIN: drupal services node create login (warning: don't use https if you don't have ssl setup)
+  $.ajax({
+      url: "http://www.myrobot.com/drupal/rest/node.json",
+      type: 'post',
+      data: 'node[type]=cellbot_command&node[title]=' + encodeURIComponent(title) + '&node[language]=und&node[body][und][0][value]=' + encodeURIComponent(body) +
+'&node[field_cb_node_id][und][0][value]=16',
+      dataType: 'json',
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('cellbot_command create_submit - failure');
+        console.log(JSON.stringify(XMLHttpRequest));
+        console.log(JSON.stringify(textStatus));
+        console.log(JSON.stringify(errorThrown));
+      },
+      success: function (data) {
+        alert("success creating right cellbot command node");
+      }
+  });
+        });
+
+        $('#forward16').bind('click', function() {
+            alert('cellbot with node 16 forward button clicked');
+
+             var title = 'node 16 forward cellbot command';
+  var body = 'f';
+  var cb_node_id = 16;
+
+  // BEGIN: drupal services node create login (warning: don't use https if you don't have ssl setup)
+  $.ajax({
+      url: "http://www.myrobot.com/drupal/rest/node.json",
+      type: 'post',
+      data: 'node[type]=cellbot_command&node[title]=' + encodeURIComponent(title) + '&node[language]=und&node[body][und][0][value]=' + encodeURIComponent(body) +
+'&node[field_cb_node_id][und][0][value]=16',
+      dataType: 'json',
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('cellbot_command create_submit - failure');
+        console.log(JSON.stringify(XMLHttpRequest));
+        console.log(JSON.stringify(textStatus));
+        console.log(JSON.stringify(errorThrown));
+      },
+      success: function (data) {
+        alert("success creating forward cellbot command node");
+      }
+  });
+        });
+
+        $('#backward16').bind('click', function() {
+            alert('cellbot with node 16 backward button clicked');
+
+             var title = 'node 16 backward cellbot command';
+  var body = 'b';
+  var cb_node_id = 16;
+
+  // BEGIN: drupal services node create login (warning: don't use https if you don't have ssl setup)
+  $.ajax({
+      url: "http://www.myrobot.com/drupal/rest/node.json",
+      type: 'post',
+      data: 'node[type]=cellbot_command&node[title]=' + encodeURIComponent(title) + '&node[language]=und&node[body][und][0][value]=' + encodeURIComponent(body) +
+'&node[field_cb_node_id][und][0][value]=16',
+      dataType: 'json',
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('cellbot_command create_submit - failure');
+        console.log(JSON.stringify(XMLHttpRequest));
+        console.log(JSON.stringify(textStatus));
+        console.log(JSON.stringify(errorThrown));
+      },
+      success: function (data) {
+        alert("success creating backward cellbot command node");
+      }
+  });
+        });
+
+    }
+};
+
+
+ 
+})(jQuery);
