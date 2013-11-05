@@ -7,7 +7,37 @@
 <TextView
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:text="Hello World, MyRobotActivity"
+    android:text="Version 0.3"
     />
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" /> 
+
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Get USB Devices"
+     android:onClick="getUsbDevices" />
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview"
+    android:choiceMode="singleChoice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" /> 
+
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Get Permission"
+     android:onClick="getPermission" />
+
+
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="After Permission"
+     android:onClick="afterPermission" />
 </LinearLayout>
 
