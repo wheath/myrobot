@@ -3,4 +3,9 @@ myrobot
 
 Social robotics platform
 
-Uses drupal
+Uses: 
+* drupal
+* opentok
+* arduino
+* redpark
+* romotive
