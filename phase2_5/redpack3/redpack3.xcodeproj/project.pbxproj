@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C3D677E185B0B82003E7092 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D677D185B0B82003E7092 /* UIKit.framework */; };
+		2C3D6780185B0B82003E7092 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D677F185B0B82003E7092 /* Foundation.framework */; };
+		2C3D6782185B0B82003E7092 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D6781185B0B82003E7092 /* CoreGraphics.framework */; };
+		2C3D6788185B0B82003E7092 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D6786185B0B82003E7092 /* InfoPlist.strings */; };
+		2C3D678A185B0B82003E7092 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6789185B0B82003E7092 /* main.m */; };
+		2C3D678E185B0B82003E7092 /* rpkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D678D185B0B82003E7092 /* rpkAppDelegate.m */; };
+		2C3D6790185B0B82003E7092 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D678F185B0B82003E7092 /* Default.png */; };
+		2C3D6792185B0B82003E7092 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D6791185B0B82003E7092 /* Default@2x.png */; };
+		2C3D6794185B0B82003E7092 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D6793185B0B82003E7092 /* Default-568h@2x.png */; };
+		2C3D6797185B0B82003E7092 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D6795185B0B82003E7092 /* MainStoryboard.storyboard */; };
+		2C3D679A185B0B82003E7092 /* rpkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6799185B0B82003E7092 /* rpkViewController.m */; };
+		2C3D67A1185B0BAA003E7092 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67A0185B0BAA003E7092 /* ExternalAccessory.framework */; };
+		2C3D67A3185B0BB2003E7092 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67A2185B0BB2003E7092 /* CoreTelephony.framework */; };
+		2C3D67A5185B0BBA003E7092 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67A4185B0BBA003E7092 /* CoreVideo.framework */; };
+		2C3D67A9185B0BD9003E7092 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67A8185B0BD9003E7092 /* CoreAudio.framework */; };
+		2C3D67AB185B0BE0003E7092 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67AA185B0BE0003E7092 /* AVFoundation.framework */; };
+		2C3D67AD185B0BE9003E7092 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67AC185B0BE9003E7092 /* AudioToolbox.framework */; };
+		2C3D67AF185B0BF0003E7092 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67AE185B0BF0003E7092 /* CFNetwork.framework */; };
+		2C3D67B1185B0BF6003E7092 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67B0185B0BF6003E7092 /* OpenGLES.framework */; };
+		2C3D67B3185B0BFC003E7092 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67B2185B0BFC003E7092 /* QuartzCore.framework */; };
+		2C3D67B5185B0C05003E7092 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67B4185B0C05003E7092 /* SystemConfiguration.framework */; };
+		2C3D67BB185B0C18003E7092 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67BA185B0C18003E7092 /* MobileCoreServices.framework */; };
+		2C3D67BD185B0C20003E7092 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67BC185B0C20003E7092 /* Security.framework */; };
+		2C3D67BF185B0C35003E7092 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67BE185B0C35003E7092 /* CoreMedia.framework */; };
+		2C3D67C1185B0C40003E7092 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67C0185B0C40003E7092 /* Opentok.framework */; };
+		2C3D67C3185B0C61003E7092 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D67C2185B0C61003E7092 /* opentok.bundle */; };
+		2C3D67C7185B0C7C003E7092 /* libRscMgrUniv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67C6185B0C7C003E7092 /* libRscMgrUniv.a */; };
+		2C3D67C9185B0E49003E7092 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67C8185B0E49003E7092 /* libz.dylib */; };
+		2C3D67CB185B10AF003E7092 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D67CA185B10AF003E7092 /* libstdc++.dylib */; };
+		2C3D67CE185B1773003E7092 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D67CC185B118F003E7092 /* Toast.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C3D677A185B0B82003E7092 /* redpack3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redpack3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C3D677D185B0B82003E7092 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2C3D677F185B0B82003E7092 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C3D6781185B0B82003E7092 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C3D6785185B0B82003E7092 /* redpack3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "redpack3-Info.plist"; sourceTree = "<group>"; };
+		2C3D6787185B0B82003E7092 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C3D6789185B0B82003E7092 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C3D678B185B0B82003E7092 /* redpack3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "redpack3-Prefix.pch"; sourceTree = "<group>"; };
+		2C3D678C185B0B82003E7092 /* rpkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rpkAppDelegate.h; sourceTree = "<group>"; };
+		2C3D678D185B0B82003E7092 /* rpkAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rpkAppDelegate.m; sourceTree = "<group>"; };
+		2C3D678F185B0B82003E7092 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2C3D6791185B0B82003E7092 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2C3D6793185B0B82003E7092 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2C3D6796185B0B82003E7092 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2C3D6798185B0B82003E7092 /* rpkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rpkViewController.h; sourceTree = "<group>"; };
+		2C3D6799185B0B82003E7092 /* rpkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rpkViewController.m; sourceTree = "<group>"; };
+		2C3D67A0185B0BAA003E7092 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExternalAccessory.framework; sourceTree = "<group>"; };
+		2C3D67A2185B0BB2003E7092 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreTelephony.framework; sourceTree = "<group>"; };
+		2C3D67A4185B0BBA003E7092 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreVideo.framework; sourceTree = "<group>"; };
+		2C3D67A8185B0BD9003E7092 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreAudio.framework; sourceTree = "<group>"; };
+		2C3D67AA185B0BE0003E7092 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVFoundation.framework; sourceTree = "<group>"; };
+		2C3D67AC185B0BE9003E7092 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioToolbox.framework; sourceTree = "<group>"; };
+		2C3D67AE185B0BF0003E7092 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFNetwork.framework; sourceTree = "<group>"; };
+		2C3D67B0185B0BF6003E7092 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenGLES.framework; sourceTree = "<group>"; };
+		2C3D67B2185B0BFC003E7092 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
+		2C3D67B4185B0C05003E7092 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
+		2C3D67BA185B0C18003E7092 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
+		2C3D67BC185B0C20003E7092 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Security.framework; sourceTree = "<group>"; };
+		2C3D67BE185B0C35003E7092 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreMedia.framework; sourceTree = "<group>"; };
+		2C3D67C0185B0C40003E7092 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
+		2C3D67C2185B0C61003E7092 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+		2C3D67C4185B0C6C003E7092 /* redparkSerial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = redparkSerial.h; sourceTree = "<group>"; };
+		2C3D67C5185B0C73003E7092 /* RscMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RscMgr.h; sourceTree = "<group>"; };
+		2C3D67C6185B0C7C003E7092 /* libRscMgrUniv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRscMgrUniv.a; sourceTree = "<group>"; };
+		2C3D67C8185B0E49003E7092 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2C3D67CA185B10AF003E7092 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		2C3D67CC185B118F003E7092 /* Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
+		2C3D67CD185B118F003E7092 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C3D6777185B0B82003E7092 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3D677E185B0B82003E7092 /* UIKit.framework in Frameworks */,
+				2C3D6780185B0B82003E7092 /* Foundation.framework in Frameworks */,
+				2C3D6782185B0B82003E7092 /* CoreGraphics.framework in Frameworks */,
+				2C3D67A1185B0BAA003E7092 /* ExternalAccessory.framework in Frameworks */,
+				2C3D67A3185B0BB2003E7092 /* CoreTelephony.framework in Frameworks */,
+				2C3D67A5185B0BBA003E7092 /* CoreVideo.framework in Frameworks */,
+				2C3D67A9185B0BD9003E7092 /* CoreAudio.framework in Frameworks */,
+				2C3D67AB185B0BE0003E7092 /* AVFoundation.framework in Frameworks */,
+				2C3D67AD185B0BE9003E7092 /* AudioToolbox.framework in Frameworks */,
+				2C3D67AF185B0BF0003E7092 /* CFNetwork.framework in Frameworks */,
+				2C3D67B1185B0BF6003E7092 /* OpenGLES.framework in Frameworks */,
+				2C3D67B3185B0BFC003E7092 /* QuartzCore.framework in Frameworks */,
+				2C3D67B5185B0C05003E7092 /* SystemConfiguration.framework in Frameworks */,
+				2C3D67BB185B0C18003E7092 /* MobileCoreServices.framework in Frameworks */,
+				2C3D67BD185B0C20003E7092 /* Security.framework in Frameworks */,
+				2C3D67BF185B0C35003E7092 /* CoreMedia.framework in Frameworks */,
+				2C3D67C1185B0C40003E7092 /* Opentok.framework in Frameworks */,
+				2C3D67C7185B0C7C003E7092 /* libRscMgrUniv.a in Frameworks */,
+				2C3D67C9185B0E49003E7092 /* libz.dylib in Frameworks */,
+				2C3D67CB185B10AF003E7092 /* libstdc++.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C3D6771185B0B81003E7092 = {
+			isa = PBXGroup;
+			children = (
+				2C3D6783185B0B82003E7092 /* redpack3 */,
+				2C3D677C185B0B82003E7092 /* Frameworks */,
+				2C3D677B185B0B82003E7092 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C3D677B185B0B82003E7092 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D677A185B0B82003E7092 /* redpack3.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C3D677C185B0B82003E7092 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D67CA185B10AF003E7092 /* libstdc++.dylib */,
+				2C3D67C8185B0E49003E7092 /* libz.dylib */,
+				2C3D67C0185B0C40003E7092 /* Opentok.framework */,
+				2C3D67BE185B0C35003E7092 /* CoreMedia.framework */,
+				2C3D67BC185B0C20003E7092 /* Security.framework */,
+				2C3D67BA185B0C18003E7092 /* MobileCoreServices.framework */,
+				2C3D67B4185B0C05003E7092 /* SystemConfiguration.framework */,
+				2C3D67B2185B0BFC003E7092 /* QuartzCore.framework */,
+				2C3D67B0185B0BF6003E7092 /* OpenGLES.framework */,
+				2C3D67AE185B0BF0003E7092 /* CFNetwork.framework */,
+				2C3D67AC185B0BE9003E7092 /* AudioToolbox.framework */,
+				2C3D67AA185B0BE0003E7092 /* AVFoundation.framework */,
+				2C3D67A8185B0BD9003E7092 /* CoreAudio.framework */,
+				2C3D67A4185B0BBA003E7092 /* CoreVideo.framework */,
+				2C3D67A2185B0BB2003E7092 /* CoreTelephony.framework */,
+				2C3D67A0185B0BAA003E7092 /* ExternalAccessory.framework */,
+				2C3D677D185B0B82003E7092 /* UIKit.framework */,
+				2C3D677F185B0B82003E7092 /* Foundation.framework */,
+				2C3D6781185B0B82003E7092 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C3D6783185B0B82003E7092 /* redpack3 */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D67C6185B0C7C003E7092 /* libRscMgrUniv.a */,
+				2C3D67C5185B0C73003E7092 /* RscMgr.h */,
+				2C3D67C4185B0C6C003E7092 /* redparkSerial.h */,
+				2C3D67C2185B0C61003E7092 /* opentok.bundle */,
+				2C3D678C185B0B82003E7092 /* rpkAppDelegate.h */,
+				2C3D678D185B0B82003E7092 /* rpkAppDelegate.m */,
+				2C3D6795185B0B82003E7092 /* MainStoryboard.storyboard */,
+				2C3D6798185B0B82003E7092 /* rpkViewController.h */,
+				2C3D6799185B0B82003E7092 /* rpkViewController.m */,
+				2C3D67CD185B118F003E7092 /* Toast.h */,
+				2C3D67CC185B118F003E7092 /* Toast.m */,
+				2C3D6784185B0B82003E7092 /* Supporting Files */,
+			);
+			path = redpack3;
+			sourceTree = "<group>";
+		};
+		2C3D6784185B0B82003E7092 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D6785185B0B82003E7092 /* redpack3-Info.plist */,
+				2C3D6786185B0B82003E7092 /* InfoPlist.strings */,
+				2C3D6789185B0B82003E7092 /* main.m */,
+				2C3D678B185B0B82003E7092 /* redpack3-Prefix.pch */,
+				2C3D678F185B0B82003E7092 /* Default.png */,
+				2C3D6791185B0B82003E7092 /* Default@2x.png */,
+				2C3D6793185B0B82003E7092 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C3D6779185B0B82003E7092 /* redpack3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C3D679D185B0B82003E7092 /* Build configuration list for PBXNativeTarget "redpack3" */;
+			buildPhases = (
+				2C3D6776185B0B82003E7092 /* Sources */,
+				2C3D6777185B0B82003E7092 /* Frameworks */,
+				2C3D6778185B0B82003E7092 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = redpack3;
+			productName = redpack3;
+			productReference = 2C3D677A185B0B82003E7092 /* redpack3.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C3D6772185B0B81003E7092 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = rpk;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = tim2;
+			};
+			buildConfigurationList = 2C3D6775185B0B81003E7092 /* Build configuration list for PBXProject "redpack3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C3D6771185B0B81003E7092;
+			productRefGroup = 2C3D677B185B0B82003E7092 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C3D6779185B0B82003E7092 /* redpack3 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C3D6778185B0B82003E7092 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3D6788185B0B82003E7092 /* InfoPlist.strings in Resources */,
+				2C3D6790185B0B82003E7092 /* Default.png in Resources */,
+				2C3D6792185B0B82003E7092 /* Default@2x.png in Resources */,
+				2C3D6794185B0B82003E7092 /* Default-568h@2x.png in Resources */,
+				2C3D6797185B0B82003E7092 /* MainStoryboard.storyboard in Resources */,
+				2C3D67C3185B0C61003E7092 /* opentok.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C3D6776185B0B82003E7092 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3D678A185B0B82003E7092 /* main.m in Sources */,
+				2C3D678E185B0B82003E7092 /* rpkAppDelegate.m in Sources */,
+				2C3D679A185B0B82003E7092 /* rpkViewController.m in Sources */,
+				2C3D67CE185B1773003E7092 /* Toast.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C3D6786185B0B82003E7092 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C3D6787185B0B82003E7092 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2C3D6795185B0B82003E7092 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C3D6796185B0B82003E7092 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C3D679B185B0B82003E7092 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2C3D679C185B0B82003E7092 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C3D679E185B0B82003E7092 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "redpack3/redpack3-Prefix.pch";
+				INFOPLIST_FILE = "redpack3/redpack3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/redpack3\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C3D679F185B0B82003E7092 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "redpack3/redpack3-Prefix.pch";
+				INFOPLIST_FILE = "redpack3/redpack3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/redpack3\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C3D6775185B0B81003E7092 /* Build configuration list for PBXProject "redpack3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C3D679B185B0B82003E7092 /* Debug */,
+				2C3D679C185B0B82003E7092 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C3D679D185B0B82003E7092 /* Build configuration list for PBXNativeTarget "redpack3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C3D679E185B0B82003E7092 /* Debug */,
+				2C3D679F185B0B82003E7092 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C3D6772185B0B81003E7092 /* Project object */;
+}
