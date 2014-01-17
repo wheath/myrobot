@@ -1,0 +1,43 @@
+PUT /drupal/rest/node/364.json HTTP/1.1
+
+Host: www.myrobot.com
+
+Accept-Encoding: identity
+
+Content-Length: 47
+
+Content-Type: application/json
+
+Accept: application/json
+
+
+
+{"field_state":{"und":[{"value":"processed"}]}}HTTP/1.1 200 OK
+
+Date: Thu, 14 Nov 2013 00:46:26 GMT
+
+Server: Apache
+
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+
+Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
+
+Set-Cookie: SESS5722f41ab7d358b7a70efa174531cb38=YyxXkvk1xFNXSV4kSwQGQOI4PvbDzQvGbL8Q2RULnWw; expires=Sat, 07-Dec-2013 04:19:46 GMT; path=/; domain=.myrobot.com; HttpOnly
+
+Last-Modified: Thu, 14 Nov 2013 00:46:26 GMT
+
+ETag: "1384389986"
+
+Transfer-Encoding: chunked
+
+Content-Type: application/json
+
+
+
+41
+
+{"nid":"364","uri":"http://www.myrobot.com/drupal/rest/node/364"}
+
+0
+
+

@@ -1,3 +1,24 @@
-# view AndroidManifest.xml #generated:7
+# view AndroidManifest.xml #generated:15
 -keep class com.myrobot.myrobot.MyRobotActivity { <init>(...); }
+
+# onClick res/layout/main.xml #generated:49
+-keepclassmembers class * { *** afterPermission(...); }
+
+# onClick res/layout/main.xml #generated:43
+-keepclassmembers class * { *** getPermission(...); }
+
+# onClick res/layout/main.xml #generated:55
+-keepclassmembers class * { *** getUnprocessedCmdsBtn(...); }
+
+# onClick res/layout/main.xml #generated:60
+-keepclassmembers class * { *** goAvailable(...); }
+
+# onClick res/layout/main.xml #generated:25
+-keepclassmembers class * { *** loginToDrupal(...); }
+
+# onClick res/layout/main.xml #generated:37
+-keepclassmembers class * { *** logoffFromDrupal(...); }
+
+# onClick res/layout/main.xml #generated:31
+-keepclassmembers class * { *** publishStream(...); }
 

@@ -7,25 +7,38 @@
 <TextView
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:text="Version 0.3"
+    android:text="Version 0.8"
     />
 
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/listview"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" /> 
+<EditText
+    android:id="@+id/login_text"
+    android:hint="login"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"/>
+
+<EditText
+    android:id="@+id/password_text"
+    android:hint="password"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"/>
 
 <Button
      android:layout_height="wrap_content"
      android:layout_width="wrap_content"
-     android:text="Get USB Devices"
-     android:onClick="getUsbDevices" />
+     android:text="Login"
+     android:onClick="loginToDrupal" />
 
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/listview"
-    android:choiceMode="singleChoice"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" /> 
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Publish Stream"
+     android:onClick="publishStream" />
+
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Logoff"
+     android:onClick="logoffFromDrupal" />
 
 <Button
      android:layout_height="wrap_content"
@@ -33,11 +46,28 @@
      android:text="Get Permission"
      android:onClick="getPermission" />
 
-
 <Button
      android:layout_height="wrap_content"
      android:layout_width="wrap_content"
      android:text="After Permission"
      android:onClick="afterPermission" />
+
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Get Unprocessed CMDs"
+     android:onClick="getUnprocessedCmdsBtn" />
+<Button
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="Go Available"
+     android:onClick="goAvailable" />
+
+<TextView  
+android:id="@+id/status"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+android:text="status: not logged in"
+/>
 </LinearLayout>
 

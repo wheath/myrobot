@@ -1,0 +1,184 @@
+package test.android.commandline;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.util.Log;
+import android.widget.TextView;
+import android.content.IntentFilter;
+
+import android.hardware.usb.UsbConstants;
+import android.hardware.usb.UsbDevice;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbEndpoint;
+import android.hardware.usb.UsbInterface;
+import android.hardware.usb.UsbManager;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Rect;
+
+import java.util.HashMap;
+import java.util.Iterator;
+
+import android.app.PendingIntent;
+
+public class TestActivity extends Activity
+{
+    private static final String LOG_TAG = "debugger";
+    private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
+    private UsbManager mManager;
+    private UsbDevice mDevice;
+    private UsbDeviceConnection mDeviceConnection;
+    private UsbInterface mInterface;    
+    private UsbDevice theExtech = null;
+    private UsbEndpoint epIN = null;
+    private UsbEndpoint epOUT = null;
+    private PendingIntent mPermissionIntent = null;
+   
+    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+
+      public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        if (ACTION_USB_PERMISSION.equals(action)) {
+          synchronized (this) {
+            UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+
+            if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
+            if(device.getVendorId() == 0x10c4 &&
+               device.getProductId() == 0xea61) {
+                Log.i(LOG_TAG, "_dbg extech permission granted");  
+              } else {
+                Log.d("USBActivity", "Not the Extech - accepting for debug");
+              }
+            } else {
+                Log.d("USBActivity", "permission denied for device " + device);
+            }
+          }
+        }
+      }
+    };
+
+
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        Log.i(LOG_TAG, "_dbg in onCreate");  
+
+        this.mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+        IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
+        registerReceiver(mUsbReceiver, filter);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(mUsbReceiver);
+        super.onDestroy();
+    }
+
+    /** Called when the user clicks the Send button */
+    public void sendWrite(View view) {
+      Log.i(LOG_TAG, "_dbg in sendWrite");  
+      log("_dbg sendWrite called");
+      if (this.mDeviceConnection != null) {
+	UsbDeviceConnection conn = this.mDeviceConnection;
+	// Send command via a control request on endpoint zero
+	conn.controlTransfer(0x40, 0x00, 0xFFFF, 0, null, 0, 0);
+	conn.controlTransfer(0x40, 0x02, 0x02, 0, null, 0, 0);
+
+	conn.bulkTransfer(this.epOUT, new byte[] {0x0C, 0x01, 0x00}, 3,5000);
+	byte[] readBuffer = new byte[2];
+	conn.bulkTransfer(this.epIN, readBuffer, 1,5000);
+        Log.d(LOG_TAG, "_dbg byte 0: " + Integer.toHexString(readBuffer[0]));
+        Log.d(LOG_TAG, "_dbg byte 1: " + Integer.toHexString(readBuffer[1]));
+      } else {
+        Log.i(LOG_TAG, "_dbg mDeviceConnection is null");  
+      }
+      Log.i(LOG_TAG, "_dbg exiting sendWrite");  
+    }
+
+    /** Called when the user clicks the get permission button */
+    public void getPermission(View view) {
+      // Do something in response to button
+      Log.i(LOG_TAG, "_dbg in getPermission");  
+
+      UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+
+      HashMap<String, UsbDevice> deviceList = manager.getDeviceList();
+
+      if (deviceList == null) {
+        log("deviceList is null");
+      } else {
+        log("deviceList is not null");
+        log("deviceList size: " + deviceList.size());
+
+        Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
+        while(deviceIterator.hasNext()){
+            UsbDevice device = deviceIterator.next();
+            if(device.getVendorId() == 0x10c4 &&
+               device.getProductId() == 0xea61) {
+               log("extech device found");
+               this.theExtech = device;
+               manager.requestPermission(device, this.mPermissionIntent);
+            }
+        }
+      }
+    }
+
+    public void afterPermission(View view) {
+      // Do something in response to button
+      Log.i(LOG_TAG, "_dbg in afterPermission");  
+      this.setDevice(this.theExtech);
+    }
+
+    private void setDevice(UsbDevice device) {
+        Log.d(LOG_TAG, "setDevice " + device);
+        if (device.getInterfaceCount() != 1) {
+            Log.e(LOG_TAG, "_dbg could not find interface");
+            return;
+        }
+        UsbInterface intf = device.getInterface(0);
+        if (device != null) {
+            UsbManager mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+            Log.e(LOG_TAG, "_dbg before mUsbManager.openDevice(device)");
+            UsbDeviceConnection connection = mUsbManager.openDevice(device);
+            Log.e(LOG_TAG, "_dbg after mUsbManager.openDevice(device)");
+            if (connection != null && connection.claimInterface(intf, true)) {
+                Log.d(LOG_TAG, "_dbg open SUCCESS");
+                this.mDeviceConnection = connection;
+                UsbEndpoint epIN = null;
+		UsbEndpoint epOUT = null;
+
+		UsbInterface usbIf = device.getInterface(0);
+		for (int i = 0; i < usbIf.getEndpointCount(); i++) {
+		  if (usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK) {
+		    if (usbIf.getEndpoint(i).getDirection() == UsbConstants.USB_DIR_IN) {
+		      this.epIN = usbIf.getEndpoint(i);
+                    } else {
+		      this.epOUT = usbIf.getEndpoint(i);
+		    }
+		  }
+                }
+                if(this.epIN == null || this.epOUT == null) {
+                  Log.e(LOG_TAG, "_dbg epIN/OUT FAIL");
+                }
+            } else {
+                Log.d(LOG_TAG, "_dbg open FAIL");
+                this.mDeviceConnection = null;
+            }
+         }
+    }
+
+    public void log(String s) {
+      TextView textView = (TextView) findViewById(R.id.view_message);
+      textView.setText(s);
+    }
+
+
+}

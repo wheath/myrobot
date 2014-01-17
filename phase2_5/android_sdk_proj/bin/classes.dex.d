@@ -1,8 +1,19 @@
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes.dex : \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$id.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$ChangeNodeToProcessedTask.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$GoAvailableTask.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$LogoffFromDrupalTask.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$GetUnprocessedCmdsTask.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$string.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$1.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$attr.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$xml.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$layout.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/R$drawable.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/MyRobotActivity$LoginToDrupalTask.class \
 /home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/classes/com/myrobot/myrobot/BuildConfig.class \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/dexedLibs/usb-serial-for-android-v010-9f26cb2f41dd74da3ef05c210e57c544.jar \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/dexedLibs/android-support-v4-a7b5b0b7e37381ebc343403e56c23685.jar \
+/home/wheath/work/myrobot/phase2_5/android_sdk_proj/bin/dexedLibs/opentok-android-sdk-2.0-fe6e152dceac4f95c27c7c8c4655ce10.jar \
