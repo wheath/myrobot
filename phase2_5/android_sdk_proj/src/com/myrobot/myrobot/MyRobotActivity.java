@@ -1,6 +1,7 @@
 package com.myrobot.myrobot;
 
 import java.util.concurrent.TimeUnit;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.net.CookieHandler;
@@ -75,7 +76,7 @@ import com.opentok.android.Subscriber;
 public class MyRobotActivity extends Activity implements Session.Listener,
 Publisher.Listener, Subscriber.Listener {
 
-   private static final String LOGTAG = "demo-hello-world";
+   private static final String LOGTAG = "myrobot";
 
    private static final String SESSION_ID = "1_MX4yMjA4OTk2Mn5-RnJpIERlYyAyNyAyMzozMDo0NiBQU1QgMjAxM34wLjI3OTE3NzI1fg";
     // Replace with your generated Token (use Project Tools or from a server-side library)
@@ -85,10 +86,16 @@ Publisher.Listener, Subscriber.Listener {
   // Replace with a generated token (from the dashboard or using an OpenTok server SDK)
   // Replace with your OpenTok API key
   private static final String API_KEY= "22089962";
+
+  private String K_API_KEY= "";
+  private String K_TOKEN = "";
+  private String K_SESSION_ID = "";
  
   private Session mSession;
   private Publisher mPublisher;
   private Subscriber mSubscriber;
+
+  private boolean is_logged_in = false;
 
   // Declare the UI components
   private ListView listView;
@@ -197,8 +204,8 @@ Publisher.Listener, Subscriber.Listener {
   }
 
   private void sessionConnect() {
-    mSession = Session.newInstance(MyRobotActivity.this, SESSION_ID, MyRobotActivity.this);
-    mSession.connect(API_KEY, TOKEN);
+    mSession = Session.newInstance(MyRobotActivity.this, K_SESSION_ID, MyRobotActivity.this);
+    mSession.connect(K_API_KEY, K_TOKEN);
   }
   
   public void onSessionConnected() {
@@ -372,10 +379,17 @@ Publisher.Listener, Subscriber.Listener {
   public void loginToDrupal(View view) {
     Toast.makeText(getApplicationContext(), 
                    "Login", Toast.LENGTH_LONG).show();
-
-    new LoginToDrupalTask().execute(
+    //if(is_logged_in == false) {
+      Log.d("_dbg", "is_logged_in false");
+      new LoginToDrupalTask().execute(
             "http://www.myrobot.com/drupal/rest/user/login.json"
             );
+    /* }  else {
+      Log.d("_dbg", "is_logged_in true");
+      new LogoffFromDrupalTask().execute(
+            "http://www.myrobot.com/drupal/rest/user/logout.json"
+            );
+    } */
 
   }
 
@@ -383,7 +397,7 @@ Publisher.Listener, Subscriber.Listener {
     Toast.makeText(getApplicationContext(), 
                    "Logoff", Toast.LENGTH_LONG).show();
 
-    new LogoffFromDrupalTask().execute(
+      new LogoffFromDrupalTask().execute(
             "http://www.myrobot.com/drupal/rest/user/logout.json"
             );
 
@@ -506,6 +520,33 @@ Publisher.Listener, Subscriber.Listener {
      }
      return "";
   }
+  public String readCellbotInfoJSONFeed(String URL) {
+        URL = "http://www.myrobot.com/drupal/rest/node/" + cellbot_nid + ".json";
+        StringBuilder stringBuilder = new StringBuilder();
+        httpClient = new DefaultHttpClient();
+        HttpGet httpGet = new HttpGet(URL);
+        try {
+            HttpResponse response = httpClient.execute(httpGet);
+            StatusLine statusLine = response.getStatusLine();
+            int statusCode = statusLine.getStatusCode();
+            if (statusCode == 200) {
+                HttpEntity entity = response.getEntity();
+                InputStream inputStream = entity.getContent();
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(inputStream));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                inputStream.close();
+            } else {
+                Log.d("JSON", "Failed to download file");
+            }
+        } catch (Exception e) {
+            Log.d("readJSONFeed", e.getLocalizedMessage());
+        }        
+        return stringBuilder.toString();
+    }
 
   public String changeCmdToProcessedJSONFeed(String cb_cmd_nid) {
         String URL = "http://www.myrobot.com/drupal/rest/node/" + cb_cmd_nid + ".json";
@@ -587,6 +628,7 @@ Publisher.Listener, Subscriber.Listener {
         } catch (Exception e) {
             Log.d("readJSONFeed", e.getLocalizedMessage());
         }        
+        Log.d("_dbg", "login.json raw string: " + stringBuilder.toString());
         return stringBuilder.toString();
     }
 
@@ -650,6 +692,11 @@ Publisher.Listener, Subscriber.Listener {
             Log.d("JSON", "_dbg post statusCode: " + Integer.toString(statusCode));
             //Log.d("JSON", "_dbg put statusCode: " + Integer.toString(statusCode));
             if (statusCode == 200) {
+                /*
+                Button login_btn = (Button)findViewById(R.id.login_btn);
+                login_btn.setText("Logoff");
+                is_logged_in = true;
+                */
                 HttpEntity entity = response.getEntity();
                 InputStream inputStream = entity.getContent();
                 BufferedReader reader = new BufferedReader(
@@ -660,6 +707,7 @@ Publisher.Listener, Subscriber.Listener {
                 }
                 inputStream.close();
             } else {
+                //is_logged_in = false;
                 Log.d("JSON", "Failed to download file");
                 statusTextView.setText("status: login failed");
             }
@@ -768,6 +816,42 @@ Publisher.Listener, Subscriber.Listener {
         }
     }
 
+  private class GetCellbotInfoTask extends AsyncTask
+    <String, Void, String> {
+        protected String doInBackground(String... urls) {
+            return readCellbotInfoJSONFeed(urls[0]);
+        }
+ 
+        protected void onPostExecute(String result) {
+            try {
+
+                Log.e("_dbg result: ", result);
+                JSONObject jsonObject = new JSONObject(result);
+
+                JSONObject field_opentok_api_key = jsonObject.getJSONObject("field_opentok_api_key");
+		JSONArray und = field_opentok_api_key.getJSONArray("und");
+		JSONObject api_key_obj = und.getJSONObject(0);
+		K_API_KEY = api_key_obj.getString("value");
+                Log.d("_dbg", "K_API_KEY: " + K_API_KEY);
+
+                JSONObject field_opentok_session_id = jsonObject.getJSONObject("field_opentok_session_id");
+		und = field_opentok_session_id.getJSONArray("und");
+		JSONObject session_id_obj = und.getJSONObject(0);
+		K_SESSION_ID = session_id_obj.getString("value");
+
+                JSONObject field_opentok_token_id = jsonObject.getJSONObject("field_opentok_token_id");
+		und = field_opentok_token_id.getJSONArray("und");
+		JSONObject token_id_obj = und.getJSONObject(0);
+		K_TOKEN = token_id_obj.getString("value");
+
+                sessionConnect();
+
+            } catch (Exception e) {
+                Log.d("_dbg GetCellbotInfoTask", e.getLocalizedMessage());
+            }          
+        }
+    }
+
   private class GoAvailableTask extends AsyncTask
     <String, Void, String> {
         protected String doInBackground(String... urls) {
@@ -844,6 +928,7 @@ Publisher.Listener, Subscriber.Listener {
                 cellbot_nid = nid_obj.getString("nid");
                 Log.e("_dbg",  "_dbg nid_obj.getString(\"nid\"): "+ cellbot_nid);
                 statusTextView.setText("status: nid " + cellbot_nid + " logged in");
+                new GetCellbotInfoTask().execute("");
             } catch (Exception e) {
                 statusTextView.setText("status: Exception logging in");
                 Log.d("_dbg LoginToDrupalTask", e.getLocalizedMessage());
